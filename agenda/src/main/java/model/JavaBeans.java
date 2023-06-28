@@ -6,10 +6,10 @@ public class JavaBeans {
 	private String fone;
 	private String email;
 	private String endereco;
+	private String valorConta;
 	
 	public JavaBeans() {
 		super();
-
 	}
 	
 	public JavaBeans(String idcli, String nome, String fone, String email, String endereco, String valorConta) {
@@ -58,5 +58,4 @@ public class JavaBeans {
 	public void setValorConta(String valorConta) {
 		this.valorConta = valorConta;
 	}
-	private String valorConta;
 }
