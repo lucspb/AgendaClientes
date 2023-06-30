@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO;
+import model.JavaBeans;
 
-@WebServlet(urlPatterns = {"/Controller", "/main"})
+@WebServlet(urlPatterns = {"/Controller", "/main", "/insert"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
+	JavaBeans cliente = new JavaBeans();
 
     public Controller() {
     }
@@ -21,11 +23,25 @@ public class Controller extends HttpServlet {
 		System.out.println(action);
 		if(action.equals("/main")) {
 			clientes(request, response);
+		} else if(action.equals("/insert")) {
+			novoCliente(request, response);
+		} else {
+			response.sendRedirect("index.html");
 		}
 	}
 	
 	//listar clientes
 	protected void clientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("agenda.jsp");
+	}
+	
+	//novo cliente
+	protected void novoCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// setar as variaveis do JavaBeans
+		cliente.setNome(request.getParameter("nome"));
+		cliente.setFone(request.getParameter("fone"));
+		cliente.setEmail(request.getParameter("email"));
+		cliente.setEndereco(request.getParameter("endereco"));
+		cliente.setValorConta(request.getParameter("valorConta"));
 	}
 }
