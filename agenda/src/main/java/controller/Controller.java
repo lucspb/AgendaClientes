@@ -43,5 +43,9 @@ public class Controller extends HttpServlet {
 		cliente.setEmail(request.getParameter("email"));
 		cliente.setEndereco(request.getParameter("endereco"));
 		cliente.setValorConta(request.getParameter("valorConta"));
+		// invocar o metodo inserirCliente passando o objeto cliente
+		dao.inserirCliente(cliente);
+		// redirecionar para o documento agenda.jsp
+		response.sendRedirect("main");
 	}
 }
