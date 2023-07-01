@@ -25,6 +25,7 @@
 				<th>E-mail</th>
 				<th>Endereco</th>
 				<th>Valor da Conta</th>
+				<th>Opções</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,6 +37,7 @@
 					<td> <%= lista.get(i).getEmail()%> </td>
 					<td> <%= lista.get(i).getEndereco()%> </td>
 					<td> <%= lista.get(i).getValorConta()%> </td>
+					<td> <a href="select?idcli=<%=lista.get(i).getIdcli() %>" class="botaoPrimary">Editar</a></td>
 				</tr>
 			
 			<% } %>
