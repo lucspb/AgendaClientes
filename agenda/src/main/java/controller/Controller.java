@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,8 @@ public class Controller extends HttpServlet {
 	
 	//listar clientes
 	protected void clientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("agenda.jsp");
+		//criando um objeto que ira receber os dados JavaBeans
+		ArrayList<JavaBeans> lista = dao.listarClientes();
 	}
 	
 	//novo cliente
