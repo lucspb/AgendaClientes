@@ -65,5 +65,7 @@ public class Controller extends HttpServlet {
 		String idcli = request.getParameter("idcli");
 		// setar a variavel javabeans
 		cliente.setIdcli(idcli);
+		//executar o metodo selecionarContato (DAO)
+		dao.selecionarCliente(cliente);
 	}
 }

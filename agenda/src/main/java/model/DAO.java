@@ -80,6 +80,28 @@ public class DAO {
 		}
 	}
 	
+	//CRUD UPDATE
+	public void selecionarCliente(JavaBeans cliente) {
+		String read2 = "select * from clientes where idcli = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(read2);
+			pst.setString(1, cliente.getIdcli());
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				cliente.setIdcli(rs.getString(1));
+				cliente.setNome(rs.getString(2));
+				cliente.setFone(rs.getString(3));
+				cliente.setEmail(rs.getString(4));
+				cliente.setEndereco(rs.getString(5));
+				cliente.setValorConta(rs.getString(6));
+			}
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	
 	//teste de conexao
 	/* 
