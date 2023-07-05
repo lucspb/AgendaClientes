@@ -91,5 +91,7 @@ public class Controller extends HttpServlet {
 		cliente.setValorConta(request.getParameter("valorConta"));
 		//executar o metodo alterarCliente
 		dao.alterarCliente(cliente);
+		//redirecionar para o agenda.jsp (atualizando os dados)
+		response.sendRedirect("main");
 	}
 }
