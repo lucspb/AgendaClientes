@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>Editar cliente</h1>
-	<form name="frmCliente" action="">
+	<form name="frmCliente" action="update">
 		<table>
 			<tr>
 				<td><input type="text" name="idcli" id="box3" readonly value="<%out.print(request.getAttribute("idcli"));%>"></td>

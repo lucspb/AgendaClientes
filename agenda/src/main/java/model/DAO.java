@@ -102,6 +102,24 @@ public class DAO {
 		}
 	}
 	
+	// editar o contato
+	public void alterarCliente(JavaBeans cliente) {
+		String create = "update clientes set nome=?,fone=?,email=?,endereco=?,valorConta=? where idcli=?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(create);
+			pst.setString(1, cliente.getNome());
+			pst.setString(2, cliente.getFone());
+			pst.setString(3, cliente.getEmail());
+			pst.setString(4, cliente.getEndereco());
+			pst.setString(5, cliente.getValorConta());
+			pst.setString(6, cliente.getIdcli());
+			pst.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	//teste de conexao
 	/* 
