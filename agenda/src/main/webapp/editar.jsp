@@ -13,22 +13,22 @@
 	<form name="frmCliente" action="">
 		<table>
 			<tr>
-				<td><input type="text" name="idcli" id="box3"></td>
+				<td><input type="text" name="idcli" id="box3" readonly value="<%out.print(request.getAttribute("idcli"));%>"></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="nome" class="box"></td>
+				<td><input type="text" name="nome" class="box" value="<%out.print(request.getAttribute("nome"));%>"></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="fone" class="box2"></td>
+				<td><input type="text" name="fone" class="box2" value="<%out.print(request.getAttribute("fone"));%>"></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="email" class="box"></td>
+				<td><input type="text" name="email" class="box" value="<%out.print(request.getAttribute("email"));%>"></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="endereco" class="box"></td>
+				<td><input type="text" name="endereco" class="box" value="<%out.print(request.getAttribute("endereco"));%>"></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="valorConta" class="box2"></td>
+				<td><input type="text" name="valorConta" class="box2" value="<%out.print(request.getAttribute("valorConta"));%>"></td>
 			</tr>
 		</table>
 		<input type="button" class="botaoPrimary" value="Salvar" onClick="validar()">

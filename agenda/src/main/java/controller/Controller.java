@@ -67,12 +67,15 @@ public class Controller extends HttpServlet {
 		cliente.setIdcli(idcli);
 		//executar o metodo selecionarContato (DAO)
 		dao.selecionarCliente(cliente);
-		//teste de recebimento
-		System.out.println(cliente.getIdcli());
-		System.out.println(cliente.getNome());
-		System.out.println(cliente.getFone());
-		System.out.println(cliente.getEmail());
-		System.out.println(cliente.getEndereco());
-		System.out.println(cliente.getValorConta());	
+		//setar os atributos do form com o conteudo javaBeans
+		request.setAttribute("idcli", cliente.getIdcli());
+		request.setAttribute("nome", cliente.getNome());
+		request.setAttribute("fone", cliente.getFone());
+		request.setAttribute("email", cliente.getEmail());
+		request.setAttribute("endereco", cliente.getEndereco());
+		request.setAttribute("valorConta", cliente.getValorConta());
+		// encaminahr ao documento editar.jsp
+		RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+		rd.forward(request, response);
 	}
 }
