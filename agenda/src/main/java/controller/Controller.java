@@ -67,5 +67,12 @@ public class Controller extends HttpServlet {
 		cliente.setIdcli(idcli);
 		//executar o metodo selecionarContato (DAO)
 		dao.selecionarCliente(cliente);
+		//teste de recebimento
+		System.out.println(cliente.getIdcli());
+		System.out.println(cliente.getNome());
+		System.out.println(cliente.getFone());
+		System.out.println(cliente.getEmail());
+		System.out.println(cliente.getEndereco());
+		System.out.println(cliente.getValorConta());	
 	}
 }
