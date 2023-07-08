@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/select", "/update"})
+@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/select", "/update", "/delete"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -32,7 +32,9 @@ public class Controller extends HttpServlet {
 			listarClientes(request, response);
 		}else if(action.equals("/update")) {
 			editarCliente(request, response);
-		} else {
+		} else if(action.equals("/delete")) {
+			removerCliente(request, response);
+		}else {
 			response.sendRedirect("index.html");
 		}
 	}
@@ -94,4 +96,15 @@ public class Controller extends HttpServlet {
 		//redirecionar para o agenda.jsp (atualizando os dados)
 		response.sendRedirect("main");
 	}
+	
+	// remover um cliente
+	protected void removerCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String idcli = request.getParameter("idcli");
+		cliente.setIdcli(idcli);
+		//executar o metodo deletar cliente
+		dao.deletarCliente(cliente);
+		//redirecionar para o agenda.jsp (atualizando os dados)
+		response.sendRedirect("main");
+	}
+	
 }

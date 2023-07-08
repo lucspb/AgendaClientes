@@ -121,6 +121,20 @@ public class DAO {
 		}
 	}
 	
+	// CRUD DELETE
+	public void deletarCliente(JavaBeans cliente) {
+		String delete = "delete from clientes where idcli=?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(delete);
+			pst.setString(1, cliente.getIdcli());
+			pst.executeUpdate();
+			con.close();
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	//teste de conexao
 	/* 
 	 * public void testConexao() {
