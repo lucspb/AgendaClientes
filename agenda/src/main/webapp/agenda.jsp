@@ -16,6 +16,7 @@
 <body>
 	<h1>Agenda de Clientes</h1>
 	<a href="novo.html" class="botaoPrimary">Novo Cliente</a>
+	<a href="print" class="botaoSecondary">Imprimir Relatório</a>
 	<table id="tabela">
 		<thead>
 			<tr>

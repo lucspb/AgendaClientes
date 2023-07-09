@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/select", "/update", "/delete"})
+@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/select", "/update", "/delete", "/print"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -34,6 +34,8 @@ public class Controller extends HttpServlet {
 			editarCliente(request, response);
 		} else if(action.equals("/delete")) {
 			removerCliente(request, response);
+		} else if(action.equals("/print")) {
+			imprimirRelatorio(request, response);
 		}else {
 			response.sendRedirect("index.html");
 		}
@@ -105,6 +107,11 @@ public class Controller extends HttpServlet {
 		dao.deletarCliente(cliente);
 		//redirecionar para o agenda.jsp (atualizando os dados)
 		response.sendRedirect("main");
+	}
+	
+	// gerar relatorio em PDF
+	protected void imprimirRelatorio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 	
 }
