@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import model.DAO;
 import model.JavaBeans;
@@ -115,6 +117,21 @@ public class Controller extends HttpServlet {
 	// gerar relatorio em PDF
 	protected void imprimirRelatorio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Document documento = new Document();
+		try {
+			//tipo de conteudo
+			response.setContentType("aplication/pdf");
+			//nome do documento
+			response.addHeader("Content-Disposition", "inline; filename=" + "clientes.pdf");
+			// criar o documento
+			PdfWriter.getInstance(documento, response.getOutputStream());
+			// abrir o documento 
+			documento.open();
+			documento.add(new Paragraph("Lista de clientes:"));
+			documento.close();
+		} catch (Exception e) {
+			System.out.println(e);
+			documento.close();
+		}
 	}
 	
 }
