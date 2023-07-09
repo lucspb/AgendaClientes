@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.itextpdf.text.Document;
+
 import model.DAO;
 import model.JavaBeans;
 
@@ -111,7 +114,7 @@ public class Controller extends HttpServlet {
 	
 	// gerar relatorio em PDF
 	protected void imprimirRelatorio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		Document documento = new Document();
 	}
 	
 }
